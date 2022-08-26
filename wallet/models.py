@@ -1,20 +1,21 @@
 from ast import mod
 from curses.ascii import NUL
-from distutils.command.upload import upload
-from email.policy import default
-from inspect import signature
-from locale import currency
-from pyexpat import model
+from django.db import models
+
+
+# from distutils.command.upload import upload
+
 # from tkinter import CASCADE
-from termios import TAB1
 from time import timezone
 # from tkinter import CASCADE
-from unittest import mock
-from django.db import models
+# from unittest import mock
+# from django.db import models
 # from requests import delete
 
 # Create your models here.
-class Customer(models.Model):
+class Customer(admin.ModelAdmin):
+    list_display = ('first_name','last_name','age','email',)
+    search_fields = ('first_name', 'last_name',)
     first_name = models.CharField(max_length=15,null=True)
     last_name = models.CharField(max_length=15,null=True)
     gender = models.CharField(max_length=10,null=True)
@@ -24,7 +25,7 @@ class Customer(models.Model):
     id_number = models.CharField(max_length=10,null=True)
     phone_number = models.CharField(max_length=15,null=True)
     email = models.EmailField()
-    proile_picture = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    proile_picture = models.ImageField(default='default.jpg', upload_to='profile       _pics')
     marital_status=models.CharField(max_length=8,null=True)
     employment_status = models.BooleanField(null=True)
     signature=models.ImageField(default='default.jpg',upload_to='profile_pics')
@@ -32,15 +33,15 @@ class Customer(models.Model):
 
 
 class Wallet(models.Model):
-    balance = models.IntegerField(default="")
-    customer_id = models.IntegerField(default="")
+    balance = models.IntegerField(null=True)
+    customer_id = models.IntegerField(null=True)
     # currency=models.ForeignKey(on_delete=CASCADE,null=True)
-    time = models.DateTimeField(default="")
-    status = models.CharField(max_length=15,default="")
-    history = models.DateTimeField(default="")
-    pin = models.CharField(max_length=15,default="")
+    time = models.DateTimeField(null=True)
+    status = models.CharField(max_length=15,null=True)
+    history = models.DateTimeField(null=True)
+    pin = models.CharField(max_length=15,null=True)
     active=models.BooleanField(null=True)
-    datecreated=models.DateTimeField(default="")
+    datecreated=models.DateTimeField(null=True)
     type=models.CharField(max_length=8,null=True)
 
 
@@ -54,13 +55,13 @@ class Account(models.Model):
 
 class Transaction(models.Model):
     transaction_code = models.CharField(max_length=30)
-    wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE)
+    wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE, null=True)
     transaction_amount = models.IntegerField()
-    transaction_type = models.CharField(max_length=30)
-    transaction_charge = models.IntegerField()
-    transaction_time = models.DateTimeField()
+    transaction_type = models.CharField(max_length=30, null=True)
+    transaction_charge = models.IntegerField(null=True)
+    transaction_time = models.DateTimeField(null=True)
     reciept = models.CharField(max_length=8,null=True)
-    # origin_account = models.ForeignKey(Account, on_delete=models.CASCADE,null=True)
+    origin_account = models.ForeignKey(Account, on_delete=models.CASCADE,null=True)
     destination_account = models.ForeignKey(Account, on_delete=models.CASCADE,null=True)
 
 class Card(models.Model):
@@ -99,7 +100,7 @@ class Receipt(models.Model):
     receipt_date = models.DateTimeField()
     bill_number = models.IntegerField()
     total_amount = models.IntegerField()
-    # transaction = models.ForeignKey()
+    transaction = models.ForeignKey()
     receipt_file = models.FileField()
 
 class Loan(models.Model):
