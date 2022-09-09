@@ -1,0 +1,15 @@
+
+    <table>
+        <th>
+        <td>Reciept type </td>
+        <td>Reciept number</td>
+        <td>Amount</td>
+        </th>
+    {%for rec in reciepts %}
+    <tr>
+        <td>{{ rec.reciept_type}}</td> 
+        <td>{{ rec.reciept_number}}</td> 
+        <td> {{ rec.amount}}</td>
+    </tr>
+    {% endfor %}
+    </table>

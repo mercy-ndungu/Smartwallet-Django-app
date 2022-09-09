@@ -1,0 +1,17 @@
+
+    <table>
+        <th>
+        <td>Number </td>
+        <td>Card type</td>
+        <td>Account</td>
+        <td>Wallet</td>
+        </th>
+    {%for kad in cards %}
+    <tr>
+        <td>{{ kad.card_number }}</td> 
+        <td>{{ kad.card_type}}</td> 
+        <td> {{ kad.account}}</td>
+        <td> {{ kad.wallet}} </td>
+    </tr>
+    {% endfor %}
+    </table>

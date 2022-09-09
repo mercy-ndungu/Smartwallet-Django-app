@@ -1,0 +1,17 @@
+
+    <table>
+        <th>
+        <td>Wallet </td>
+        <td>Transaction amount</td>
+        <td>Origin acoount</td>
+        <td>Destinantion account</td>
+        </th>
+    {%for trans in transactions %}
+    <tr>
+        <td>{{ acc.wallet }}</td> 
+        <td>{{ acc.transaction_amount}}</td> 
+        <td> {{ acc.origin_account }}</td>
+        <td> {{ acc.destinantion_account}} </td>
+    </tr>
+    {% endfor %}
+    </table>

@@ -1,0 +1,17 @@
+
+    <table>
+        <th>
+        <td>Message </td>
+        <td>Date</td>
+        <td>Recipient</td>
+        <td>Title</td>
+        </th>
+    {%for not in notifications %}
+    <tr>
+        <td>{{ not.message }}</td> 
+        <td>{{ not.date}}</td> 
+        <td> {{ not.recipient}}</td>
+        <td> {{ not.title}} </td>
+    </tr>
+    {% endfor %}
+    </table>

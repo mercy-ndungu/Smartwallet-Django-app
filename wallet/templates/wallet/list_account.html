@@ -1,0 +1,17 @@
+
+    <table>
+        <th>
+        <td>Account name </td>
+        <td>Account number</td>
+        <td>Account balance</td>
+        <td>Wallet</td>
+        </th>
+    {%for acc in accounts %}
+    <tr>
+        <td>{{ acc.account_name }}</td> 
+        <td>{{ acc.account_number}}</td> 
+        <td> {{ acc.account_balance}}</td>
+        <td> {{ acc.wallet}} </td>
+    </tr>
+    {% endfor %}
+    </table>

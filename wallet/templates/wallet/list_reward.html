@@ -1,0 +1,17 @@
+
+    <table>
+        <th>
+        <td>Points</td>
+        <td>Recipient</td>
+        <td>Date of reward</td>
+        <td>Transaction</td>
+        </th>
+    {%for acc in accounts %}
+    <tr>
+        <td>{{ acc.points }}</td> 
+        <td>{{ acc.recipient}}</td> 
+        <td> {{ acc.date_of_reward}</td>
+        <td> {{ acc.transaction}} </td>
+    </tr>
+    {% endfor %}
+    </table>

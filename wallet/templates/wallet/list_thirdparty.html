@@ -1,0 +1,15 @@
+
+    <table>
+        <th>
+        <td>Account</td>
+        <td>Transaction Amount</td>
+        <td>Wallet</td>
+        </th>
+    {%for acc in accounts %}
+    <tr>
+        <td>{{ acc.account}}</td> 
+        <td>{{ acc.transaction_amount}}</td> 
+        <td> {{ acc.wallet}} </td>
+    </tr>
+    {% endfor %}
+    </table>

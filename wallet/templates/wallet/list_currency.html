@@ -1,0 +1,14 @@
+<table>
+    <th>
+    <td>Amount </td>
+    <td>Symbol</td>
+
+    </th>
+{%for currencies in currency  %}
+<tr>
+    <td>{{ currencies.amount }}</td> 
+    <td>{{ currencies.symbol }}</td> 
+ 
+</tr>
+{% endfor %}
+</table>
